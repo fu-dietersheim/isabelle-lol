@@ -1,6 +1,6 @@
 theory LOLogic
 imports LOL
-  (*keywords "load_data"::thy_decl*)
+  keywords "load_data"::thy_decl
 begin
 
 ML{*
@@ -50,10 +50,10 @@ in
 end
 *}
 
-(*
+
 ML{*
-Outer_Syntax.command @{command_keyword load_data} "Load data" (Parse.string >> Toplevel.local_theory)
+Outer_Syntax.local_theory @{command_keyword load_data} "Load data" (Parse.string >> (fn x => load_data [x]))
 *}
-*)
+
 
 end

@@ -2,17 +2,10 @@ theory LOL_Examples
 imports LOLogic
 begin
 
-definition [simp]: "Alice' \<equiv> True"
-definition [simp]: "Bob' \<equiv> True"
-
-lemma "Alice' \<and> Bob'"
-by solver
-
-
-local_setup \<open> 
-  load_data ["ontology"]
- \<close>
+load_data "ontology"
 
 lemma "Alice \<and> is_friend_of \<and> Bob" by solver
+
+lemma "Bob \<and> is_friend_of \<and> Eve" by solver
 
 end
