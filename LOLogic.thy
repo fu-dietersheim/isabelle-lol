@@ -1,9 +1,9 @@
 theory LOLogic
-imports LOL
+  imports LOL
   keywords "load_data"::thy_decl
 begin
 
-ML{*
+ML\<open>
 local
   local
     local
@@ -48,12 +48,13 @@ local
 in
   fun load_data (path: string list) = fn lthy =>  fold (fn d => fn t => define_fact d t) (distinct op = (openf (Proof_Context.theory_of lthy) path)) lthy
 end
-*}
+\<close>
 
 
-ML{*
-Outer_Syntax.local_theory @{command_keyword load_data} "Load data" (Parse.string >> (fn x => load_data [x]))
-*}
+ML\<open>
+  Outer_Syntax.local_theory @{command_keyword load_data} "Load data"
+    (Parse.string >> (load_data o single))
+\<close>
 
 
 end
