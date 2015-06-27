@@ -5,10 +5,10 @@ begin
 typedecl bool
 
 judgment
-  Trueprop :: "bool => prop" ("(_)" 5)
+  Trueprop :: "bool \<Rightarrow> prop" ("(_)" 5)
 
 axiomatization
-  conj :: "[bool, bool] => bool" (infixr "\<and>" 35) and
+  conj :: "bool \<Rightarrow> bool \<Rightarrow> bool" (infixr "\<and>" 35) and
   True :: bool
 where
   TrueI: "True" and
