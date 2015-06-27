@@ -4,8 +4,8 @@ begin
 
 load_data "ontology"
 
-lemma "Alice \<and> is_friend_of \<and> Bob" by solver
+lemma "Alice, is_friend_of, Bob" by solver
 
-lemma "Bob \<and> is_friend_of \<and> Eve" by solver
+lemma "Bob, is_friend_of, Eve" by solver
 
 end

@@ -8,11 +8,11 @@ judgment
   Trueprop :: "bool \<Rightarrow> prop" ("(_)" 5)
 
 axiomatization
-  conj :: "bool \<Rightarrow> bool \<Rightarrow> bool" (infixr "\<and>" 35) and
+  conj :: "bool \<Rightarrow> bool \<Rightarrow> bool" (infixr "," 35) and
   True :: bool
 where
   TrueI: "True" and
-  conjI: "P \<Longrightarrow> Q \<Longrightarrow> P \<and> Q"
+  conjI: "P \<Longrightarrow> Q \<Longrightarrow> P, Q"
 
 method_setup solver = \<open>
   let
