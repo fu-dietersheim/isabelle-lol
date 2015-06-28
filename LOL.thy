@@ -1,5 +1,5 @@
 theory LOL
-imports Pure
+imports Eisbach
 begin
 
 typedecl bool
@@ -14,14 +14,8 @@ where
   TrueI: "True" and
   conjI: "P \<Longrightarrow> Q \<Longrightarrow> P, Q"
 
-method_setup solver = \<open>
-  let
-    fun solve_tac ctxt =
-      Simplifier.simp_tac ctxt THEN_ALL_NEW
-        (REPEAT_ALL_NEW (resolve_tac ctxt @{thms TrueI conjI}))
-  in
-    Scan.succeed (SIMPLE_METHOD' o solve_tac)
-  end
-\<close>
+method_setup simp = \<open>Scan.succeed (SIMPLE_METHOD' o Simplifier.simp_tac)\<close>
+
+method solver = (simp; (rule TrueI conjI)+)
 
 end
